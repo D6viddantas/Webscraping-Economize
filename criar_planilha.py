@@ -42,17 +42,14 @@ class Planilha:
             B =f'B{contador}'
             C =f'C{contador}'
             D =f'D{contador}'
-            #adicionando nome dos produtos e links
             planilha[B] = nome
-            #adicionando o link dos produtos
             planilha[C] = link
-            #adicionando npreço
             planilha[D] = preco
             contador += 1
         lista_precos_sem_separador =[] 
         for valor in self.precos:
             novo_valor = valor.replace('.','')
-            lista_precos_sem_separador.append(novo_valor)
+            lista_precos_sem_separador.append(int(novo_valor))
         planilha = self.wb[self.site]
         melhor_valor = min(lista_precos_sem_separador)
         indice = lista_precos_sem_separador.index(melhor_valor)
